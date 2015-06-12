@@ -23,7 +23,8 @@
     "supyo": "~0.2.0",
     "tar": "~0.1.8",
     "wreck": "~5.1.0",
-    "ws": "~0.4.31"
+    "ws": "~0.4.31",
+    "json-patch" : "~0.5.0"
   },
   "devDependencies": {
     "change-case": "^2.2.0",
