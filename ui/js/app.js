@@ -599,8 +599,8 @@ function setupCartridges (_cartridges) {
 }
 
 function updateBitcoins (selector, bitcoins) {
-  var units = 'mBTC'
-  var adjustedValue = bitcoins * 1000
+  var units = 'START'
+  var adjustedValue = bitcoins
   $(selector).find('.btc-amount').html(formatBitcoins(adjustedValue))
   $(selector).find('.bitcoin-units').html(units)
 }
@@ -644,7 +644,7 @@ function singleCurrencyUnit () {
 function setExchangeRate (rate) {
   lastRate = rate
   var rateStr = formatFiat(rate.xbtToFiat, 2)
-  var translated = locale.translate('Our current Bitcoin price is %s').fetch(rateStr)
+  var translated = locale.translate('Our current StartCOIN price is %s').fetch(rateStr)
   $('.js-i18n-current-bitcoin-price').html(translated)
   updateBitcoins('.reverse-exchange-rate', rate.fiatToXbt)
   var insertedText = locale.translate('per %s inserted')
@@ -702,7 +702,7 @@ function sendOnly (reason) {
     "We're out of bitcoins."
   t('limit-reached', locale.translate(reasonText).fetch())
   t('limit-description',
-    locale.translate('Please touch <strong>Send Bitcoins</strong> to complete your purchase.').fetch())
+    locale.translate('Please touch <strong>Send StartCOINs</strong> to complete your purchase.').fetch())
   $('#insert-another').css({'display': 'none'})
   $('#limit-reached-section').css({'display': 'block'})
 }
@@ -798,7 +798,7 @@ function fiatCredit (data) {
   manageFiatButtons(activeDenominations.activeMap)
   $('.choose_fiat_state .fiat-amount').text(fiat)
   t('choose-digital-amount',
-    locale.translate("You'll be sending %s mBTC").fetch(mbtc))
+    locale.translate("You'll be sending %s START").fetch(mbtc))
 
   reachFiatLimit(activeDenominations)
 }
@@ -825,7 +825,7 @@ function setDepositAddress (tx) {
     render: 'canvas',
     width: 275,
     height: 275,
-    text: 'bitcoin:' + tx.toAddress + '?amount=' + bitcoins
+    text: 'startcoin:' + tx.toAddress + '?amount=' + bitcoins
   })
 }
 
